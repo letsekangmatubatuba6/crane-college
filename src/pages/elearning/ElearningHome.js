@@ -754,14 +754,6 @@ function ELearningHome() {
           Login to E-Learning
         </button>
       </form>
-
-      <div className="login-modal-demo">
-        <strong>Demo Account</strong>
-        <br />
-        Email: student@cranecollege.edu
-        <br />
-        Password: 123456
-      </div>
     </div>
   </div>
 )}
