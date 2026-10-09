@@ -113,36 +113,11 @@ function ELearningLogin() {
     }}
   />
 
-  <button
-    type="submit"
-    style={{
-      display: "block",
-      width: "100%",
-      padding: "13px",
-      backgroundColor: "#102a43",
-      color: "white",
-      border: "none",
-      borderRadius: "6px",
-      cursor: "pointer",
-    }}
-  >
-    Login
-  </button>
+  
 </form>
 
 
-        <p style={{ textAlign: "center", marginTop: "20px" }}>
-          <Link
-            to="/e-learning"
-            style={{ color: "#102a43", textDecoration: "none" }}
-          >
-            ← Back to E-Learning
-          </Link>
-        </p>
-
-        <p style={{ fontSize: "12px", color: "#627d98", textAlign: "center" }}>
-          Demo login: enter any valid email and a non-empty password.
-        </p>
+      
       </div>
     </div>
   );
