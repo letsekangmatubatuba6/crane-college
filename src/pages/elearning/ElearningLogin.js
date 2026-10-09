@@ -117,7 +117,16 @@ function ELearningLogin() {
 </form>
 
 
-      
+        <p style={{ textAlign: "center", marginTop: "20px" }}>
+          <Link
+            to="/e-learning"
+            style={{ color: "#102a43", textDecoration: "none" }}
+          >
+            ← Back to E-Learning
+          </Link>
+        </p>
+
+        
       </div>
     </div>
   );
