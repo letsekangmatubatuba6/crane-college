@@ -29,14 +29,17 @@ function Home() {
         <div className="header-container">
 
           <Link to="/" className="college-logo">
-            <div className="logo-mark">
-              CC
-            </div>
+            
 
-            <div className="logo-text">
-              <strong>CRANE</strong>
-              <span>COLLEGE</span>
-            </div>
+            <div className="logo-image-container">
+  <Link to="/" aria-label="Crane College home">
+    <img
+      src="/crane.ico"
+      alt="Crane College Logo"
+      className="logo-image"
+    />
+  </Link>
+</div>
           </Link>
 
 
@@ -44,10 +47,6 @@ function Home() {
 
             <Link to="/about">
               About
-            </Link>
-
-            <Link to="/programmes">
-              Study
             </Link>
 
             <Link to="/research">
@@ -81,59 +80,77 @@ function Home() {
       </header>
 
 
-      {/* HERO SECTION */}
-      <section className="hero">
+{/* HERO SECTION */}
+<section className="hero">
 
-        <div className="hero-image"></div>
+  {/* Background video */}
+  <video
+    className="hero-video"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    ref={(video) => {
+      if (video) {
+        video.playbackRate = 2;
+      }
+    }}
+  >
+    <source src="/crane.mp4" type="video/mp4" />
+    Your browser does not support video playback.
+  </video>
 
-        <div className="hero-overlay"></div>
+  {/* Dark overlay over the video */}
+  <div className="hero-overlay"></div>
 
-        <div className="hero-content">
+  {/* Hero content */}
+  <div className="hero-content">
 
-          <div className="hero-line"></div>
+    <div className="hero-line"></div>
 
-          <p className="hero-small">
-            WELCOME TO CRANE COLLEGE
-          </p>
+    <p className="hero-small">
+      WELCOME TO CRANE COLLEGE
+    </p>
 
-          <h1>
-            Shape Your Future.
-            <br />
-            Build Your Career.
-          </h1>
+    <h1>
+      Shape Your Future.
+      <br />
+      Build Your Career.
+    </h1>
 
-          <p className="hero-description">
-            A modern institution focused on quality education,
-            innovation, research and preparing students for the future.
-          </p>
+    <p className="hero-description">
+      A modern institution focused on quality education,
+      innovation, research and preparing students for the future.
+    </p>
 
-          <div className="hero-buttons">
+    <div className="hero-buttons">
 
-            <Link
-              to="/admissions"
-              className="hero-primary-button"
-            >
-              APPLY TO CRANE
-            </Link>
+      <Link
+        to="/admissions"
+        className="hero-primary-button"
+      >
+        APPLY TO CRANE
+      </Link>
 
-            <Link
-              to="/programmes"
-              className="hero-secondary-button"
-            >
-              EXPLORE PROGRAMMES
-            </Link>
+      <Link
+        to="/programmes"
+        className="hero-secondary-button"
+      >
+        EXPLORE PROGRAMMES
+      </Link>
 
-          </div>
+    </div>
 
-        </div>
+  </div>
 
+  <div className="hero-scroll">
+    <span>SCROLL TO EXPLORE</span>
+    <div></div>
+  </div>
 
-        <div className="hero-scroll">
-          <span>SCROLL TO EXPLORE</span>
-          <div></div>
-        </div>
+</section>
 
-      </section>
 
 
       {/* INTRODUCTION */}

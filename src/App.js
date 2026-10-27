@@ -19,7 +19,6 @@ import StudentDashboard from "./pages/elearning/StudentDashboard";
 import ELearningLogin from "./pages/elearning/ElearningLogin";
 import Courses from "./pages/elearning/MyCourses";
 import SoftwareEngineering from "./pages/elearning/SoftwareEngineering";
-
 import "./App.css";
 
 function App() {
