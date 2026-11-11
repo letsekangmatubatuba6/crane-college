@@ -9,7 +9,7 @@ function Home() {
       <div className="top-bar">
         <div className="top-bar-container">
           <div className="top-left">
-            <span>CRANE COLLEGE</span>
+            <span></span>
           </div>
 
           <div className="top-right">
@@ -44,6 +44,9 @@ function Home() {
 
 
           <nav className="main-nav">
+            <Link to="/home">
+              Home
+            </Link>
 
             <Link to="/about">
               About
@@ -60,25 +63,18 @@ function Home() {
             <Link to="/news">
               News
             </Link>
-
             <Link to="/contact">
               Contact
             </Link>
-
           </nav>
-
-
           <Link
             to="/admissions"
             className="apply-button"
           >
             APPLY NOW
           </Link>
-
         </div>
-
       </header>
-
 
 {/* HERO SECTION */}
 <section className="hero">
@@ -213,7 +209,7 @@ function Home() {
         <div className="statistics-container">
 
           <div className="stat-item">
-            <strong>10,000+</strong>
+            <strong>5000+</strong>
             <span>Students</span>
           </div>
 
@@ -228,7 +224,7 @@ function Home() {
           </div>
 
           <div className="stat-item">
-            <strong>20+</strong>
+            <strong>10+</strong>
             <span>Years of Excellence</span>
           </div>
 
@@ -398,7 +394,7 @@ function Home() {
         <div className="research-image">
 
           <img
-            src="https://images.unsplash.com/photo-1581093458791-9d42e3c4f2c9?auto=format&fit=crop&w=1400&q=80"
+            src="/IMG-20261028-WA0018.jpg"
             alt="Research and innovation"
           />
 

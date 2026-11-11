@@ -5,16 +5,34 @@ import { Link } from "react-router-dom";
 function About() {
 return (
 <div className="crane-about">
+ {/* TOP UTILITY BAR */}
+      <div className="top-bar">
+        <div className="top-bar-container">
+          <div className="top-left">
+            <span></span>
+          </div>
+
+          <div className="top-right">
+            <Link to="/students">Students</Link>
+            <Link to="/e-learning">E-Learning </Link>
+            <Link to="/contact">Staff</Link>
+            <Link to="/contact">Alumni</Link>
+            <Link to="/contact">Giving</Link>
+          </div>
+        </div>
+      </div>
 
   <header className="crane-about-header">
-  <Link to="/" className="crane-about-brand">
-    <span className="crane-about-logo">✦</span>
-    <strong>CRANE COLLEGE</strong>
-  </Link>
-
+  <Link to="/" aria-label="Crane College home">
+      <img
+        src="/crane.ico"
+        alt="Crane College Logo"
+        className="logo-image"
+      />
+    </Link>
+  
   <nav className="crane-about-nav">
     <Link to="/">Home</Link>
-  
     <Link to="/programmes">Programmes</Link>
     <Link to="/admissions">Admissions</Link>
     <Link to="/students">Students</Link>
@@ -23,32 +41,23 @@ return (
   </nav>
 </header>
 
-  {/* HERO SECTION */}
-  <section className="crane-about-hero">
-    <div className="crane-about-hero-content">
-      <p>ABOUT CRANE COLLEGE</p>
-      <h1>
-        Education. Innovation.
-        <br />
-        Excellence.
-      </h1>
-      <span>
-        Discover who we are, what we stand for and our vision
-        for the future.
-      </span>
-    </div>
+ {/* HERO SECTION */}
+<section className="crane-about-hero">
+  <div className="crane-about-hero-content">
+    <p>ABOUT CRANE COLLEGE</p>
 
-    <div className="crane-about-hero-art">
-      <div className="crane-about-building">
-        <div className="crane-about-building-sign">
-          <span className="crane-about-shield">✦</span>
-          CRANE COLLEGE
-        </div>
-        <div className="crane-about-windows" />
-        <div className="crane-about-door" />
-      </div>
-    </div>
-  </section>
+    <h1>
+      Education. Innovation.
+      <br />
+      Excellence.
+    </h1>
+
+    <span>
+      Discover who we are, what we stand for and our vision
+      for the future.
+    </span>
+  </div>
+</section>
 
   {/* ABOUT CONTENT */}
   <main className="crane-about-content">

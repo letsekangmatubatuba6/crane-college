@@ -1,51 +1,67 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import NewsCard from "../components/NewsCard";
 
 function News() {
-  const news = [
-    {
-      category: "ACADEMICS",
-      title: "Crane College expands academic programmes",
-      date: "September 2026",
-      icon: "🎓",
-      description:
-        "Discover academic opportunities and programmes designed to prepare students for the future.",
-    },
-    {
-      category: "STUDENTS",
-      title: "New student orientation programme announced",
-      date: "September 2026",
-      icon: "🤝",
-      description:
-        "Learn about the orientation programme welcoming students into the Crane College community.",
-    },
-    {
-      category: "RESEARCH",
-      title: "Students participate in innovation projects",
-      date: "August 2026",
-      icon: "💡",
-      description:
-        "Explore student innovation, creative thinking and projects focused on solving real-world problems.",
-    },
-    {
-      category: "CAMPUS",
-      title: "New facilities introduced for students",
-      date: "August 2026",
-      icon: "🏛️",
-      description:
-        "Find out about campus facilities and resources that support student learning and development.",
-    },
-  ];
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response = await fetch("http://localhost:5000/api/news");
+
+        if (!response.ok) {
+          throw new Error("Unable to retrieve college news.");
+        }
+
+        const data = await response.json();
+
+        setNews(data.news || []);
+      } catch (err) {
+        console.error("News loading error:", err);
+        setError("We could not load the latest news. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   return (
     <div className="crane-news-page">
+       {/* TOP UTILITY BAR */}
+            <div className="top-bar">
+              <div className="top-bar-container">
+                <div className="top-left">
+                  <span></span>
+                </div>
+      
+                <div className="top-right">
+                  <Link to="/students">Students</Link>
+                  <Link to="/e-learning">E-Learning </Link>
+                  <Link to="/contact">Staff</Link>
+                  <Link to="/contact">Alumni</Link>
+                  <Link to="/contact">Giving</Link>
+                </div>
+              </div>
+            </div>
+
+      {/* HEADER */}
       <header className="crane-about-header">
-        <Link to="/" className="crane-about-brand">
-          <span className="crane-about-logo">✦</span>
-          <strong>CRANE COLLEGE</strong>
-        </Link>
+        <Link to="/" aria-label="Crane College home">
+            <img
+              src="/crane.ico"
+              alt="Crane College Logo"
+              className="logo-image"
+            />
+          </Link>
 
         <nav className="crane-about-nav">
           <Link to="/">Home</Link>
@@ -58,6 +74,7 @@ function News() {
         </nav>
       </header>
 
+      {/* HERO */}
       <section className="crane-news-hero">
         <div className="crane-news-hero-content">
           <span className="crane-news-eyebrow">
@@ -82,22 +99,28 @@ function News() {
         <div className="crane-news-hero-art">
           <div className="crane-news-art-circle"></div>
           <div className="crane-news-art-icon">📰</div>
+
           <span className="crane-news-floating crane-news-floating-one">
             CAMPUS LIFE
           </span>
+
           <span className="crane-news-floating crane-news-floating-two">
             COLLEGE NEWS
           </span>
         </div>
       </section>
 
+      {/* NEWS CONTENT */}
       <section className="crane-news-content">
+
         <div className="crane-news-heading">
           <div>
             <span className="crane-news-section-label">
               NEWSROOM
             </span>
+
             <h2>Latest news & updates</h2>
+
             <p>
               Explore announcements and stories from across our college.
             </p>
@@ -108,53 +131,64 @@ function News() {
           </span>
         </div>
 
-        <div className="crane-news-grid">
-          {news.map((item, index) => (
-            <article className="crane-news-card" key={item.title}>
-              <div className={`crane-news-card-image news-image-${index + 1}`}>
-                <span className="crane-news-card-icon">{item.icon}</span>
-                <span className="crane-news-card-number">
-                  0{index + 1}
-                </span>
-              </div>
+        {/* LOADING */}
+        {loading && (
+          <div className="crane-news-message">
+            <h3>Loading latest news...</h3>
+            <p>Please wait while we retrieve college updates.</p>
+          </div>
+        )}
 
-              <div className="crane-news-card-body">
-                <div className="crane-news-card-meta">
-                  <span className="crane-news-category">
-                    {item.category}
-                  </span>
-                  <span className="crane-news-date">
-                    {item.date}
-                  </span>
-                </div>
+        {/* ERROR */}
+        {!loading && error && (
+          <div className="crane-news-message">
+            <h3>Unable to load news</h3>
+            <p>{error}</p>
 
-                <h3>{item.title}</h3>
+            <button onClick={() => window.location.reload()}>
+              Try Again
+            </button>
+          </div>
+        )}
 
-                <p>{item.description}</p>
+        {/* EMPTY NEWS */}
+        {!loading && !error && news.length === 0 && (
+          <div className="crane-news-message">
+            <h3>No news articles available</h3>
+            <p>Please check again later for college announcements.</p>
+          </div>
+        )}
 
-                <Link
-                  to={`/news/${index + 1}`}
-                  className="crane-news-read-more"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    window.alert(
-                      "Full news articles have not been added yet. This story is: " +
-                        item.title
-                    );
-                  }}
-                >
-                  Read More <span>→</span>
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+        {/* NEWS CARDS */}
+        {!loading && !error && news.length > 0 && (
+          <div className="crane-news-grid">
+            {news.map((item, index) => (
+              <NewsCard
+                key={item.id}
+                news={{
+                  ...item,
+                  image: item.image,
+                  date: item.date,
+                  category: item.category,
+                  title: item.title,
+                  description: item.description
+                }}
+              />
+            ))}
+          </div>
+        )}
+
       </section>
 
+      {/* CALL TO ACTION */}
       <section className="crane-news-cta">
         <div>
-          <span className="crane-news-section-label">STAY CONNECTED</span>
+          <span className="crane-news-section-label">
+            STAY CONNECTED
+          </span>
+
           <h2>Be part of the Crane College story.</h2>
+
           <p>
             Contact us for information about our programmes,
             activities and announcements.
@@ -165,6 +199,7 @@ function News() {
           Contact the College <span>→</span>
         </Link>
       </section>
+
     </div>
   );
 }

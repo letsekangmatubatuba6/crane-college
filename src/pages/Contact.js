@@ -32,11 +32,30 @@ function Contact() {
 
   return (
     <div className="crane-contact-page">
+       {/* TOP UTILITY BAR */}
+            <div className="top-bar">
+              <div className="top-bar-container">
+                <div className="top-left">
+                  <span></span>
+                </div>
+      
+                <div className="top-right">
+                  <Link to="/students">Students</Link>
+                  <Link to="/e-learning">E-Learning </Link>
+                  <Link to="/contact">Staff</Link>
+                  <Link to="/contact">Alumni</Link>
+                  <Link to="/contact">Giving</Link>
+                </div>
+              </div>
+            </div>
       <header className="crane-about-header">
-        <Link to="/" className="crane-about-brand">
-          <span className="crane-about-logo">✦</span>
-          <strong>CRANE COLLEGE</strong>
-        </Link>
+        <Link to="/" aria-label="Crane College home">
+            <img
+              src="/crane.ico"
+              alt="Crane College Logo"
+              className="logo-image"
+            />
+          </Link>
 
         <nav className="crane-about-nav">
           <Link to="/">Home</Link>
@@ -114,7 +133,7 @@ function Contact() {
               <div>
                 <h3>Call Us</h3>
                 <p>+266 0000 0000</p>
-                <small>Replace this placeholder with the college's official number.</small>
+                
               </div>
             </div>
 
