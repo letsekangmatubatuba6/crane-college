@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../api";
 
 
 function Admissions() {
@@ -38,7 +39,7 @@ function Admissions() {
     const fetchProgrammes = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/programmes"
+          `${API_BASE_URL}/api/programmes`
         );
 
         const data = await response.json();
@@ -195,7 +196,7 @@ function Admissions() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/applications",
+        `${API_BASE_URL}/api/applications`,
         {
           method: "POST",
           headers: {
@@ -283,7 +284,6 @@ function Admissions() {
              />
            </Link>
            
-
           <nav className="crane-about-nav">
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>

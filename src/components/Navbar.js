@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -20,6 +21,10 @@ function Navbar() {
         <Link to="/students">Students</Link>
         <Link to="/news">News</Link>
         <Link to="/contact">Contact</Link>
+
+        <Link to="/admin/login" className="admin-navbar-link">
+          Admin Portal
+        </Link>
       </nav>
     </header>
   );

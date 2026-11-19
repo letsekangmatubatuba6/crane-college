@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NewsCard from "../components/NewsCard";
+import API_BASE_URL from "../api";
 
 function News() {
   const [news, setNews] = useState([]);
@@ -14,7 +15,7 @@ function News() {
         setLoading(true);
         setError("");
 
-        const response = await fetch("http://localhost:5000/api/news");
+        const response = await fetch(`${API_BASE_URL}/api/news`);
 
         if (!response.ok) {
           throw new Error("Unable to retrieve college news.");

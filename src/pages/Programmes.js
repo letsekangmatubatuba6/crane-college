@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../api";
 
 function Programmes() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -55,7 +56,7 @@ function Programmes() {
         setError("");
 
         const response = await fetch(
-          "http://localhost:5000/api/programmes"
+          `${API_BASE_URL}/api/programmes`
         );
 
         if (!response.ok) {

@@ -4,21 +4,39 @@ const cors = require("cors");
 require("dotenv").config();
 
 const pool = require("./config/db");
+
 const programmeRoutes = require("./routes/programmeRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
 const newsRoutes = require("./routes/newsRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const studentRoutes = require("./routes/studentRoutes");
 
 const app = express();
 
-// Middleware
+// CORS configuration
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-  origin: "http://localhost:3000"
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  }
 }));
 
 app.use(express.json());
+
+// API routes
 app.use("/api/programmes", programmeRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/news", newsRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/admin/students", studentRoutes);
 
 // Welcome route
 app.get("/", (req, res) => {

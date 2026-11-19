@@ -9,6 +9,7 @@ function ELearningHome() {
   const [loginError, setLoginError] = useState("");
   return (
     <div className="elearning-home">
+      
 
       {/* =========================
           TOP BAR
@@ -46,14 +47,14 @@ function ELearningHome() {
             className="elearning-logo"
           >
 
-            <div className="elearning-logo-mark">
-              CC
-            </div>
 
-            <div>
-              <strong>CRANE</strong>
-              <span>COLLEGE</span>
-            </div>
+            <Link to="/" aria-label="Crane College home">
+                <img
+                  src="/crane.ico"
+                  alt="Crane College Logo"
+                  className="logo-image"
+                />
+              </Link>
 
           </Link>
 

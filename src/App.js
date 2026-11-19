@@ -19,6 +19,9 @@ import StudentDashboard from "./pages/elearning/StudentDashboard";
 import ELearningLogin from "./pages/elearning/ElearningLogin";
 import Courses from "./pages/elearning/MyCourses";
 import SoftwareEngineering from "./pages/elearning/SoftwareEngineering";
+import AdminLogin from "./pages/Admin/AdminLogin";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import ApplicationManagement from "./pages/Admin/ApplicationManagement";
 import "./App.css";
 
 function App() {
@@ -53,6 +56,33 @@ function App() {
       <StudentDashboard />
     ) : (
       <Navigate to="/e-learning/login" replace />
+    )
+  }
+/>
+    {/* PRIVATE ADMIN LOGIN */}
+<Route
+  path="/admin/login"
+  element={<AdminLogin />}
+/>
+
+{/* PRIVATE ADMIN PAGES */}
+<Route
+  path="/admin/dashboard"
+  element={
+    localStorage.getItem("adminToken") ? (
+      <AdminDashboard />
+    ) : (
+      <Navigate to="/admin/login" replace />
+    )
+  }
+/>
+ <Route
+  path="/admin/application-management"
+  element={
+    localStorage.getItem("adminToken") ? (
+      <ApplicationManagement />
+    ) : (
+      <Navigate to="/admin/login" replace />
     )
   }
 />

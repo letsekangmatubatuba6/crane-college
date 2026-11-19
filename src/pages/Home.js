@@ -28,19 +28,13 @@ function Home() {
 
         <div className="header-container">
 
-          <Link to="/" className="college-logo">
-            
-
-            <div className="logo-image-container">
-  <Link to="/" aria-label="Crane College home">
-    <img
-      src="/crane.ico"
-      alt="Crane College Logo"
-      className="logo-image"
-    />
-  </Link>
-</div>
-          </Link>
+          <Link to="/" aria-label="Crane College home">
+                <img
+                  src="/crane.ico"
+                  alt="Crane College Logo"
+                  className="logo-image"
+                />
+              </Link>
 
 
           <nav className="main-nav">
@@ -76,28 +70,14 @@ function Home() {
         </div>
       </header>
 
+
 {/* HERO SECTION */}
 <section className="hero">
 
-  {/* Background video */}
-  <video
-    className="hero-video"
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="auto"
-    ref={(video) => {
-      if (video) {
-        video.playbackRate = 2;
-      }
-    }}
-  >
-    <source src="/crane.mp4" type="video/mp4" />
-    Your browser does not support video playback.
-  </video>
+  {/* Background image */}
+  <div className="hero-image"></div>
 
-  {/* Dark overlay over the video */}
+  {/* Dark overlay over the image */}
   <div className="hero-overlay"></div>
 
   {/* Hero content */}
@@ -146,6 +126,7 @@ function Home() {
   </div>
 
 </section>
+
 
 
 

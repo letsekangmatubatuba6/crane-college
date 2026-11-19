@@ -803,8 +803,8 @@ a {
 
   background:
     linear-gradient(
-      rgba(139, 30, 36, 0.92),
-      rgba(139, 30, 36, 0.92)
+      rgba(16, 16, 31, 0.92),
+      rgba(16, 16, 31, 0.92)
     ),
     url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=80");
 
@@ -872,7 +872,7 @@ a {
 ========================================= */
 
 .footer {
-  background: #070b2c;
+  background: #387C53;
   color: #fff5f5;
 }
 
@@ -8306,3 +8306,19 @@ a {
     padding: 65px 7%;
   }
 }
+
+.admin-navbar-link {
+  background-color: #176b45;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.admin-navbar-link:hover {
+  background-color: #104d32;
+  color: white !important;
+}
+
